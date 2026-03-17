@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="new-contact.html">New Contact</a>
+        <a href="view-contacts.html">View All Conctact</a>
+    </nav>
+
+    <form>
+        <h1>Add New Contact</h1>
+        <label>ID Name</label>
+        <input type="number" name="id name" placeholder="Enter ID Name" required><br><br>
+
+        <label>First Name</label>
+        <input type="text" name="first name" placeholder="Enter First Name" required><br><br>
+
+        <label>Last Name</label>
+        <input type="text" name="last name" placeholder="Enter Last Name" required><br><br>
+
+        <label>Gender</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br><br>
+
+        <label>Phone </label>
+        <input type="text" name="phone" placeholder="+2547" required><br><br>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter Email" required><br><br>
+
+               
+        <label for="">Adress</label>
+        <input type="text" name="address" placeholder="Enter Address" required><br><br>
+
+        <label for="">Email</label>
+        <input type="email" name="email" placeholder="Enter Email" required><br><br>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label>Position</label>
+        <select name="position">
+            <option value="" disabled selected>Select Position if Official</option>
+            <option>Manager</option>
+            <option>Developer</option>
+            <option>Designer</option>
+            <option>Intern</option>
+        </select><br><br>
+        
+        <button type="submit">Save Contact</button>
+
+
+
+    </form>
+    
+</body>
+</html>
