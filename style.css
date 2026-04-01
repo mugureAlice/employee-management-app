@@ -30,7 +30,7 @@ nav ul li a {
     padding: 20px;
 }
 
-form {
+/* form {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -39,7 +39,7 @@ form {
 form input {
     margin: 10px 0;
     padding: 8px;
-}
+} */
 
 button {
     padding: 10px;

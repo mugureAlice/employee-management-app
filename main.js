@@ -1,69 +1,78 @@
+let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
 const form = document.getElementById("contactForm");
 
 if (form) {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-
         const newContact = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value,
-            department: document.getElementById("department").value,
-            position: document.getElementById("position").value
+            fullName: form.firstName.value + " " + form.lastName.value,
+            email: form.email.value,
+            phone: form.phone.value,
+            department: form.department.value
         };
 
         contacts.push(newContact);
         localStorage.setItem("contacts", JSON.stringify(contacts));
 
-        alert("Contact saved!");
+        alert("Contact saved successfully ");
         form.reset();
     });
 }
 
-const table = document.getElementById("contactTable");
 
-if (table) {
-    let contacts = JSON.parse(localStorage.getItem("contacts")) || "";
+const tableBody = document.getElementById("contactTable");
+
+if (tableBody) {
+    displayContacts();
+}
+
+function displayContacts() {
+    tableBody.innerHTML = "";
 
     contacts.forEach((contact, index) => {
-        let row = `
-            <tr>
-                <td>${contact.name}</td>
-                <td>${contact.email}</td>
-                <td>${contact.phone}</td>
-                <td>${contact.department}</td>
-                <td>
-                    <button onclick="viewDetails(${index})">Details</button>
-                    <button onclick="editContact()">Edit</button>
-                    <button onclick="deleteContact(${index})">Delete</button>
-                </td>
-            </tr>
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${contact.fullName}</td>
+            <td>${contact.email}</td>
+            <td>${contact.phone}</td>
+            <td>${contact.department}</td>
+            <td>
+                <button onclick="viewDetails(${index})">Details</button>
+                <button onclick="editContact()">Edit</button>
+                <button onclick="deleteContact(${index})">Delete</button>
+            </td>
         `;
-        table.innerHTML += row;
+
+        tableBody.appendChild(row);
     });
 }
 
 
 function viewDetails(index) {
-    let contacts = JSON.parse(localStorage.getItem("contacts"));
-    let c = contacts[index];
-
+    const contact = contacts[index];
     alert(
-        Name: ${c.name}\nEmail: ${c.email}\nPhone: ${c.phone}\nDepartment: ${c.department}\nPosition: ${c.position}
+        `Name: ${contact.fullName}
+Email: ${contact.email}
+Phone: ${contact.phone}
+Department: ${contact.department}`
     );
 }
 
+
 function editContact() {
-    alert("Edit functionality coming soon!");
+    alert("Still figuring this feature out");
 }
 
+
 function deleteContact(index) {
-    if (confirm("Are you sure you want to delete?")) {
-        let contacts = JSON.parse(localStorage.getItem("contacts"));
+    const confirmDelete = confirm("Are you sure you want to delete?");
+
+    if (confirmDelete) {
         contacts.splice(index, 1);
         localStorage.setItem("contacts", JSON.stringify(contacts));
-        location.reload();
+        displayContacts();
     }
 }
