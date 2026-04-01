@@ -40,9 +40,9 @@ function displayContacts() {
             <td>${contact.phone}</td>
             <td>${contact.department}</td>
             <td>
-                <button onclick="viewDetails(${index})">Details</button>
-                <button onclick="editContact()">Edit</button>
-                <button onclick="deleteContact(${index})">Delete</button>
+                <button class="details-btn" onclick="viewDetails(${index})">Details</button>
+                <button class="edit-btn" onclick="editContact(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteContact(${index})">Delete</button>
             </td>
         `;
 
